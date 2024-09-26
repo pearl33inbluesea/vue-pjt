@@ -1,85 +1,41 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>동적 카드 팝업 - Article</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- 네비게이션 바 -->
+  <nav class="navbar">
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="article.html" class="active">Article</a></li> <!-- 현재 페이지에 해당하는 링크에 active 클래스 추가 -->
+      <li><a href="works.html">Works</a></li>
+      <li><a href="chat.html">Chat</a></li>
+      <li><a href="application.html">Application</a></li>
+    </ul>
+  </nav>
 
-<template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <!-- 메인 콘텐츠 (카드) -->
+  <div class="container">
+    <div class="card" data-content-id="1">Article 1</div>
+    <div class="card" data-content-id="2">Article 2</div>
+    <div class="card" data-content-id="3">Article 3</div>
+    <div class="card" data-content-id="4">Article 4</div>
+  </div>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-      hi
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
+  <!-- 팝업 모달 -->
+  <div class="modal" id="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <div class="modal-body" id="modal-body">
+        <!-- 팝업 내용이 동적으로 삽입됩니다 -->
+      </div>
     </div>
-  </header>
+  </div>
 
-  <RouterView />
-</template>
-
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
-}
-
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
-
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
-
-nav a.router-link-exact-active {
-  color: var(--color-text);
-}
-
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
-}
-
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
-}
-
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
-}
-</style>
+  <script src="script.js"></script>
+</body>
+</html>
